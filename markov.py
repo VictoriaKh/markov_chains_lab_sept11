@@ -52,9 +52,8 @@ def make_chains(text_string):
             chains[key].append(words[i + 2])
         else:
             chains[key]  = [words[i + 2]]   
-#        print(key)
 
-    print(chains)   
+     
   
     # your code goes here
 
@@ -66,14 +65,29 @@ def make_text(chains):
 
 
 
-
-
-
-
     words = []
 
     # your code goes here
+    keys_of_dict = chains.keys()
+    lst = list(keys_of_dict)
+       
+    first_random_key = choice(lst)
+    first_random_key = list(first_random_key)
 
+    
+
+    
+    words.append(first_random_key[0])
+    words.append(first_random_key[1])
+    while True:
+        new_key = tuple(words[-2:])
+        if new_key not in chains:
+            break
+        random_word_from_value = choice(chains[new_key])
+        words.append(random_word_from_value)
+    
+   
+   
     return " ".join(words)
 
 
