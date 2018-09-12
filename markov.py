@@ -115,10 +115,35 @@ def make_text(chains,n_gram):
     # your code goes here
     keys_of_dict = chains.keys()
     lst = list(keys_of_dict)
-       
-    first_random_key = choice(lst)
-    first_random_key = list(first_random_key)
+    
 
+    # first_random_key = choice(lst)
+    # first_random_key = list(first_random_key)   
+
+
+#####################further study capital letter #############33    
+
+    # while True:
+    #     first_random_key = choice(lst)
+    #     if first_random_key[0] == first_random_key[0].title():
+    #         first_random_key = list(first_random_key)
+    #         break
+    #     else:
+    #         continue    
+
+################### another way to begin on a capital letter ##########
+
+    capitalized_keys = []
+    for key in lst:
+        if key[0] == key[0].title():
+            capitalized_keys.append(key)
+
+    print(capitalized_keys)        
+
+    first_random_key = choice(capitalized_keys)
+    first_random_key = list(first_random_key)          
+
+#######################################################################3
     
 
     
