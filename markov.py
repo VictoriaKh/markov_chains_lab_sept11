@@ -2,6 +2,8 @@
 
 from random import choice
 import sys
+import string
+
 
 
 def open_and_read_file():
@@ -138,7 +140,7 @@ def make_text(chains,n_gram):
         if key[0] == key[0].title():
             capitalized_keys.append(key)
 
-    print(capitalized_keys)        
+            
 
     first_random_key = choice(capitalized_keys)
     first_random_key = list(first_random_key)          
@@ -147,17 +149,38 @@ def make_text(chains,n_gram):
     
 
     
+    # words.extend(first_random_key)
+    # while True:
+    #     new_key = tuple(words[-n_gram:])
+    #     if new_key not in chains:
+    #         break
+
+    #     random_word_from_value = choice(chains[new_key])
+    #     words.append(random_word_from_value)
+        
+
+    # return " ".join(words)    
+
+################ further study ending sentence with punctuation ##########
+
     words.extend(first_random_key)
     while True:
         new_key = tuple(words[-n_gram:])
         if new_key not in chains:
             break
+
         random_word_from_value = choice(chains[new_key])
         words.append(random_word_from_value)
+
+
+        if words[-1][-1] in string.punctuation:
+            return " ".join(words)
+        else:
+            continue    
     
    
    
-    return " ".join(words)
+    
 
 def main():  #using this function only for further study,to make n_gram global for code without using "global"
     n_gram = int(input("enter a number for n-gram >"))
